@@ -4,7 +4,9 @@ interface ITodoItems {
   todos: Items;
 }
 
-export const TodoItems = (props: ITodoItems) => {
+//handleDone
+
+export const TodoItems = (props: ITodoItems, handleDelete: Function) => {
   return (
     <li>
       <h3>{props.todos.title}</h3>
@@ -13,9 +15,14 @@ export const TodoItems = (props: ITodoItems) => {
       <div>
         <label>
           Done
-          <input type="checkbox" checked={props.todos.done} readOnly />
+          <input
+            type="checkbox"
+            //   onClick={() => handleDone()}
+            checked={props.todos.done}
+            readOnly
+          />
         </label>
-        <button>Delete</button>
+        <button onClick={() => handleDelete(props.todos.id)}>Delete</button>
       </div>
     </li>
   );

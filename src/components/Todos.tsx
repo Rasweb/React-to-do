@@ -11,10 +11,24 @@ export const Todos = () => {
     new Items("Sleep", 420, false, 5),
   ]);
 
+  //   const handleDone = () => {
+  //     console.log("dave");
+  //   };
+
+  const handleDelete = (id: number) => {
+    // If id is not the pressed one add to new array.
+    const newTodos = todos.filter((item) => item.id !== id);
+    setTodos(newTodos);
+    console.log("Delete");
+  };
+
   return (
     <>
       {todos.map((item) => {
-        return <TodoItems todos={item} key={item.id} />;
+        return (
+          //
+          <TodoItems todos={item} key={item.id} handleDelete={handleDelete} />
+        );
       })}
     </>
   );
