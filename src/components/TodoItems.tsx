@@ -9,7 +9,14 @@ export const TodoItems = (props: ITodoItems) => {
     <li>
       <h3>{props.todos.title}</h3>
       <p>{props.todos.duration} min</p>
-      <input type="checkbox" checked={props.todos.done} readOnly />
+
+      <div>
+        <label>
+          Done
+          <input type="checkbox" checked={props.todos.done} readOnly />
+        </label>
+        <button>Delete</button>
+      </div>
     </li>
   );
 };
