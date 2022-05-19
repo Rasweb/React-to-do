@@ -25,7 +25,7 @@ export const Todos = () => {
   let todoHtml = todos.map((item) => {
     return (
       //  handleDelete={handleDelete}
-      <TodoItems todos={item} key={item.id} />
+      <TodoItems todos={item} key={item.id} handleDelete={handleDelete} />
     );
   });
 
