@@ -22,14 +22,12 @@ export const Todos = () => {
     console.log("Delete");
   };
 
-  return (
-    <>
-      {todos.map((item) => {
-        return (
-          //
-          <TodoItems todos={item} key={item.id} handleDelete={handleDelete} />
-        );
-      })}
-    </>
-  );
+  let todoHtml = todos.map((item) => {
+    return (
+      //  handleDelete={handleDelete}
+      <TodoItems todos={item} key={item.id} />
+    );
+  });
+
+  return <>{todoHtml}</>;
 };

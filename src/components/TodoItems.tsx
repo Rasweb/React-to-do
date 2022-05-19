@@ -6,7 +6,7 @@ interface ITodoItems {
 
 //handleDone
 
-export const TodoItems = (props: ITodoItems, handleDelete: Function) => {
+export const TodoItems = (props: ITodoItems) => {
   return (
     <li>
       <h3>{props.todos.title}</h3>
@@ -22,7 +22,7 @@ export const TodoItems = (props: ITodoItems, handleDelete: Function) => {
             readOnly
           />
         </label>
-        <button onClick={() => handleDelete(props.todos.id)}>Delete</button>
+        {/* <button onClick={() => handleDelete(props.todos.id)}>Delete</button> */}
       </div>
     </li>
   );
