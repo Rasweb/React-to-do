@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import { Items } from "./../models/Items";
 import { TodoItems } from "./TodoItems";
 
@@ -10,6 +10,18 @@ export const Todos = () => {
     new Items("Read book", 30, false, 4),
     new Items("Sleep", 420, false, 5),
   ]);
+  // Add todo:
+  const [title, setTitle] = useState("");
+  const [duration, setDuration] = useState(0);
+  const [done, setDone] = useState("false");
+  const [id, setId] = useState(0);
+
+  // const handleCreate = () => {
+  //   setDuration(duration);
+  //   setTitle(title);
+  //   setDone(done);
+  //   setId(id);
+  // };
 
   const handleClick = (id: number) => {
     // 1. Create new list using map.
@@ -60,6 +72,7 @@ export const Todos = () => {
   return (
     <>
       {todoHtml}
+
       {/* <input type="checkbox" checked={done} onChange={handleClick} /> */}
     </>
   );
