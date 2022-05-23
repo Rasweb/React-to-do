@@ -1,5 +1,6 @@
-import { ChangeEvent, useState } from "react";
+import { useState } from "react";
 import { Items } from "./../models/Items";
+import { CreateTodo } from "./CreateTodo";
 import { TodoItems } from "./TodoItems";
 
 export const Todos = () => {
@@ -10,18 +11,6 @@ export const Todos = () => {
     new Items("Read book", 30, false, 4),
     new Items("Sleep", 420, false, 5),
   ]);
-  // Add todo:
-  const [title, setTitle] = useState("");
-  const [duration, setDuration] = useState(0);
-  const [done, setDone] = useState("false");
-  const [id, setId] = useState(0);
-
-  // const handleCreate = () => {
-  //   setDuration(duration);
-  //   setTitle(title);
-  //   setDone(done);
-  //   setId(id);
-  // };
 
   const handleClick = (id: number) => {
     // 1. Create new list using map.
@@ -41,15 +30,6 @@ export const Todos = () => {
     setTodos(res);
   };
 
-  // console.log(done);
-
-  // const handleClick = (id: number) => {
-  //   const notDoneItems = todos.filter((item) =>
-  //     item.id === id ? { ...item, done: true } : item
-  //   );
-  //   setTodos(notDoneItems);
-  // };
-
   const handleDelete = (id: number) => {
     // If id is not the pressed one add to new array.
     const newTodos = todos.filter((item) => item.id !== id);
@@ -59,18 +39,21 @@ export const Todos = () => {
 
   let todoHtml = todos.map((item) => {
     return (
-      //  handleDelete={handleDelete}
-      <TodoItems
-        todos={item}
-        key={item.id}
-        handleDelete={handleDelete}
-        handleClick={handleClick}
-      />
+      <>
+        <TodoItems
+          todos={item}
+          key={item.id}
+          handleDelete={handleDelete}
+          handleClick={handleClick}
+        ></TodoItems>
+      </>
     );
   });
 
   return (
     <>
+      {/* <CreateTodo todos={todos} /> */}
+      <CreateTodo todos={todos} setTodos={setTodos} />
       {todoHtml}
 
       {/* <input type="checkbox" checked={done} onChange={handleClick} /> */}
