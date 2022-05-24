@@ -37,6 +37,11 @@ export const Todos = () => {
     console.log("Delete");
   };
 
+  const handleAddTodo = (item: Items) => {
+    setTodos([...todos, item]);
+    // setTodos([...todos, oneTodo]);
+  };
+
   let todoHtml = todos.map((item) => {
     return (
       <>
@@ -45,7 +50,7 @@ export const Todos = () => {
           key={item.id}
           handleDelete={handleDelete}
           handleClick={handleClick}
-        ></TodoItems>
+        />
       </>
     );
   });
@@ -53,7 +58,7 @@ export const Todos = () => {
   return (
     <>
       {/* <CreateTodo todos={todos} /> */}
-      <CreateTodo todos={todos} setTodos={setTodos} />
+      <CreateTodo handleAddTodo={handleAddTodo} />
       {todoHtml}
 
       {/* <input type="checkbox" checked={done} onChange={handleClick} /> */}

@@ -1,10 +1,8 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import { Items } from "../models/Items";
-import { todos, setTodos } from "./Todos";
 
 interface ICreateTodo {
-  todos: todos;
-  setTodos: setTodos;
+  handleAddTodo(oneTodo: Items): void;
 }
 
 export const CreateTodo = (props: ICreateTodo) => {
@@ -27,7 +25,8 @@ export const CreateTodo = (props: ICreateTodo) => {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     console.log(oneTodo);
-    setTodos([...todos, oneTodo]);
+    props.handleAddTodo(oneTodo);
+    //setTodos([...todos, oneTodo]);
   };
 
   return (
