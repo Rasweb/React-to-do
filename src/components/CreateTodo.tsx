@@ -1,12 +1,13 @@
 import { ChangeEvent, FormEvent, useState } from "react";
-import { Items } from "../models/Items";
+import { Todo } from "../models/Todo";
 
 interface ICreateTodo {
-  handleAddTodo(oneTodo: Items): void;
+  handleAddTodo(oneTodo: Todo): void;
 }
 
 export const CreateTodo = (props: ICreateTodo) => {
-  const [oneTodo, setOneTodo] = useState<Items>({
+  // Creates a new state for the new Todo
+  const [oneTodo, setOneTodo] = useState<Todo>({
     title: "",
     duration: 0,
     done: false,
@@ -14,6 +15,7 @@ export const CreateTodo = (props: ICreateTodo) => {
   });
 
   const handleAdd = (e: ChangeEvent<HTMLInputElement>) => {
+    // Checks if input is number or not and adds to OneTodo.
     console.log(e.target.name);
     if (e.target.type !== "number") {
       setOneTodo({ ...oneTodo, [e.target.name]: e.target.value });
@@ -25,13 +27,17 @@ export const CreateTodo = (props: ICreateTodo) => {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     console.log(oneTodo);
+    // uses OneTodo as a parameter for the add props.
     props.handleAddTodo(oneTodo);
-    //setTodos([...todos, oneTodo]);
+    // Clears input after handleSubmit is called
+    setOneTodo({ title: "", duration: 0, done: false, id: 0 });
   };
 
   return (
     <>
+      {/* handleSubmit is the submit button function. */}
       <form onSubmit={handleSubmit}>
+        {/* handleAdd function listens to the input value. */}
         <input
           type="text"
           placeholder="title"
@@ -58,7 +64,6 @@ export const CreateTodo = (props: ICreateTodo) => {
         <br />
         <button type="submit">Add</button>
       </form>
-      <div>Todo: {JSON.stringify(oneTodo)}</div>
     </>
   );
 };

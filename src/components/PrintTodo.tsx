@@ -1,24 +1,25 @@
-import { Items } from "../models/Items";
+import { Todo } from "../models/Todo";
 
-interface ITodoItems {
-  todos: Items;
+interface IPrintTodo {
+  todos: Todo;
   handleDelete(id: number): void;
-
-  handleClick(id: number): void;
+  handleDoneTodo(id: number): void;
 }
 
-export const TodoItems = (props: ITodoItems) => {
+export const PrintTodo = (props: IPrintTodo) => {
   return (
-    <li className={`todoItemsCont + ${props.todos.done ? "red" : ""}`}>
+    // If props.todos.done is true use the class done.
+    <li className={`todoItemsCont + ${props.todos.done ? "done" : ""}`}>
       <h3>{props.todos.title}</h3>
       <p>{props.todos.duration} min</p>
       <div>
         <label>
+          {/* If props.todos.done is true show "Undo" else show "Done" */}
           {props.todos.done ? "Undo" : "Done"}
           <input
             type="checkbox"
             checked={props.todos.done}
-            onChange={() => props.handleClick(props.todos.id)}
+            onChange={() => props.handleDoneTodo(props.todos.id)}
           />
         </label>
         <button onClick={() => props.handleDelete(props.todos.id)}>

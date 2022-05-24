@@ -1,4 +1,4 @@
-export class Items {
+export class Todo {
   constructor(
     public title: string,
     public duration: number,

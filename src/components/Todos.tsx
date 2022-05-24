@@ -1,18 +1,19 @@
 import { useState } from "react";
-import { Items } from "./../models/Items";
+import { Todo } from "../models/Todo";
 import { CreateTodo } from "./CreateTodo";
-import { TodoItems } from "./TodoItems";
+import { PrintTodo } from "./PrintTodo";
 
 export const Todos = () => {
-  const [todos, setTodos] = useState<Items[]>([
-    new Items("Feed cat", 5, false, 1),
-    new Items("Exercise", 60, false, 2),
-    new Items("Shower", 5, false, 3),
-    new Items("Read book", 30, false, 4),
-    new Items("Sleep", 420, false, 5),
+  // Creating the todo list using the Todo class.
+  const [todos, setTodos] = useState<Todo[]>([
+    new Todo("Feed cat", 5, false, 1),
+    new Todo("Exercise", 60, false, 2),
+    new Todo("Shower", 5, false, 3),
+    new Todo("Read book", 30, false, 4),
+    new Todo("Sleep", 420, false, 5),
   ]);
 
-  const handleClick = (id: number) => {
+  const handleDoneTodo = (id: number) => {
     // 1. Create new list using map.
     // 2. Check if item meets condition.
     // 3. If condition is meet use all properties.
@@ -31,25 +32,27 @@ export const Todos = () => {
   };
 
   const handleDelete = (id: number) => {
-    // If id is not the pressed one add to new array.
+    // Adds every item to a new array except the pressed id item.
     const newTodos = todos.filter((item) => item.id !== id);
+    // The new array replaces the old.
     setTodos(newTodos);
     console.log("Delete");
   };
 
-  const handleAddTodo = (item: Items) => {
+  const handleAddTodo = (item: Todo) => {
+    //Adds Item (a new Todo) to the old Array.
     setTodos([...todos, item]);
-    // setTodos([...todos, oneTodo]);
   };
 
   let todoHtml = todos.map((item) => {
+    // loops through every item using map.
     return (
       <>
-        <TodoItems
+        <PrintTodo
           todos={item}
           key={item.id}
           handleDelete={handleDelete}
-          handleClick={handleClick}
+          handleDoneTodo={handleDoneTodo}
         />
       </>
     );
@@ -57,11 +60,8 @@ export const Todos = () => {
 
   return (
     <>
-      {/* <CreateTodo todos={todos} /> */}
       <CreateTodo handleAddTodo={handleAddTodo} />
       {todoHtml}
-
-      {/* <input type="checkbox" checked={done} onChange={handleClick} /> */}
     </>
   );
 };
