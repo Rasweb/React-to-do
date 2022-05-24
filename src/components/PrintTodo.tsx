@@ -9,13 +9,15 @@ interface IPrintTodo {
 export const PrintTodo = (props: IPrintTodo) => {
   return (
     // If props.todos.done is true use the class done.
-    <li className={`todoItemsCont + ${props.todos.done ? "done" : ""}`}>
-      <h3>{props.todos.title}</h3>
-      <p>{props.todos.duration} min</p>
+    <li className="todoItemsCont">
+      <div className={`${props.todos.done ? "done" : ""}`}>
+        <h2>{props.todos.title}</h2>
+        <p>{props.todos.duration} min</p>
+      </div>
       <div>
         <label>
-          {/* If props.todos.done is true show "Undo" else show "Done" */}
-          {props.todos.done ? "Undo" : "Done"}
+          {/* If props.todos.done is true show "✅" else show "❌" */}
+          {props.todos.done ? "✅" : "❌"}
           <input
             type="checkbox"
             checked={props.todos.done}

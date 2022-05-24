@@ -11,7 +11,7 @@ export const CreateTodo = (props: ICreateTodo) => {
     title: "",
     duration: 0,
     done: false,
-    id: 0,
+    id: Todo.length + 1,
   });
 
   const handleAdd = (e: ChangeEvent<HTMLInputElement>) => {
@@ -36,32 +36,27 @@ export const CreateTodo = (props: ICreateTodo) => {
   return (
     <>
       {/* handleSubmit is the submit button function. */}
-      <form onSubmit={handleSubmit}>
+      <h2>Add Todo</h2>
+      <form onSubmit={handleSubmit} className="createTodo">
         {/* handleAdd function listens to the input value. */}
+        <label>Title</label>
         <input
           type="text"
           placeholder="title"
           name="title"
           value={oneTodo.title}
           onChange={handleAdd}
+          required
         />
-        <br />
+        <label>Duration</label>
         <input
           type="number"
           placeholder="minutes"
           name="duration"
           value={oneTodo.duration}
           onChange={handleAdd}
+          required
         />{" "}
-        <br />
-        <input
-          type="number"
-          placeholder="id"
-          name="id"
-          value={oneTodo.id}
-          onChange={handleAdd}
-        />{" "}
-        <br />
         <button type="submit">Add</button>
       </form>
     </>

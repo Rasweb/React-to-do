@@ -1,3 +1,57 @@
+// CreateTodo \\
+
+button {
+  background-color: #f1356d;
+  color: #fff;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  width: 15%;
+  cursor: pointer;
+}
+
+h2 {
+  font-size: 20px;
+  color: #f1356d;
+}
+
+.createTodo {
+  input {
+    width: 40%;
+    padding: 6px 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    display: block;
+    margin-left: 30%;
+  }
+  button {
+    margin-top: 2%;
+  }
+}
+
+// CreateTodo \\
+
+.todoItemsCont {
+  button {
+    background-color: rgb(203, 9, 9);
+    color: #fff;
+    display: block;
+    margin-left: 42%;
+    margin-top: 2%;
+    margin-bottom: 3%;
+  }
+  input {
+    display: none;
+  }
+  label {
+    cursor: pointer;
+  }
+  h2 {
+    color: #282c34;
+  }
+}
+
 .done {
   text-decoration: line-through;
   color: grey;
