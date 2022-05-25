@@ -1,0 +1,21 @@
+@mixin button() {
+  background-color: #f1356d;
+  color: #fff;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  width: 15%;
+  cursor: pointer;
+}
+
+@mixin ipad() {
+  @media screen and (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin desktop() {
+  @media screen and (min-width: 1024px) {
+    @content;
+  }
+}

@@ -1,55 +1,7 @@
-// CreateTodo \\
+@import "./sass/mixins.scss";
 
-button {
-  background-color: #f1356d;
-  color: #fff;
-  border: 0;
-  padding: 8px;
-  border-radius: 8px;
-  width: 15%;
-  cursor: pointer;
-}
-
-h2 {
-  font-size: 20px;
-  color: #f1356d;
-}
-
-.createTodo {
-  input {
-    width: 40%;
-    padding: 6px 10px;
-    margin: 10px 0;
-    border: 1px solid #ddd;
-    box-sizing: border-box;
-    display: block;
-    margin-left: 30%;
-  }
-  button {
-    margin-top: 2%;
-  }
-}
-
-// CreateTodo \\
-
-.todoItemsCont {
-  button {
-    background-color: rgb(203, 9, 9);
-    color: #fff;
-    display: block;
-    margin-left: 42%;
-    margin-top: 2%;
-    margin-bottom: 3%;
-  }
-  input {
-    display: none;
-  }
-  label {
-    cursor: pointer;
-  }
-  h2 {
-    color: #282c34;
-  }
+.App {
+  text-align: center;
 }
 
 .done {
@@ -57,41 +9,56 @@ h2 {
   color: grey;
 }
 
-.App {
-  text-align: center;
+h2 {
+  font-size: 20px;
+  color: #f1356d;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+// CreateTodo \\
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.createTodo {
+  input {
+    width: 50%;
+    padding: 10px 10px;
+    margin: 12px 0;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    display: block;
+    margin-left: 25%;
+  }
+  button {
+    @include button();
+    margin-top: 2%;
+    font-size: 16px;
+    width: 30%;
+    margin: 4%;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+// CreateTodo \\
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.todoItemsCont {
+  border: 2px solid #fafafa;
+  color: #333;
+  button {
+    @include button();
+    background-color: rgb(203, 9, 9);
+    color: #fff;
+    display: block;
+    margin-left: 42%;
+    margin-top: 2%;
+    margin-bottom: 3%;
+    font-size: 14px;
   }
-  to {
-    transform: rotate(360deg);
+  input {
+    display: none;
+  }
+  label {
+    cursor: pointer;
+    margin-left: -1%;
+    font-size: 20px;
+  }
+  h2 {
+    color: #282c34;
   }
 }

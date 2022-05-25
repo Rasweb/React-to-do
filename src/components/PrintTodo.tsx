@@ -17,7 +17,7 @@ export const PrintTodo = (props: IPrintTodo) => {
       <div>
         <label>
           {/* If props.todos.done is true show "✅" else show "❌" */}
-          {props.todos.done ? "✅" : "❌"}
+          {props.todos.done ? "❌" : "✅"}
           <input
             type="checkbox"
             checked={props.todos.done}

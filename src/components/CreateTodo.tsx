@@ -48,7 +48,7 @@ export const CreateTodo = (props: ICreateTodo) => {
           onChange={handleAdd}
           required
         />
-        <label>Duration</label>
+        <label>Duration (min)</label>
         <input
           type="number"
           placeholder="minutes"
