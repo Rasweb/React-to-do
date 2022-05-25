@@ -11,10 +11,11 @@
 
 ### React-to-do
 
-Welcome to my React to do list, this is my first React project.
-
+Welcome to "React-to-do" list, this is my first React project.
 This was created so I could learn about React and how to use it.
-React is built using javaScript it's not a framework but a library.
+
+You can Add, Remove, and press done for the Todos.
+This is a basic Todo, to work with arrays and components.
 
 ## Project setup
 
@@ -46,11 +47,13 @@ The build is minified and the filenames include the hashes.\
 - React
 - React components
 - JavaScript
+- TypeScript
 - Css
+- Sass/scss
 
 ### Screenshot
 
-![]()
+![Screenshot](./public/Screenshot.png)
 
 ### Author
 
