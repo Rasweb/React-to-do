@@ -58,5 +58,3 @@ The build is minified and the filenames include the hashes.\
 ### Author
 
 [Github](https://github.com/Rasweb)
-
-[Website](https://rasweb.one/)
